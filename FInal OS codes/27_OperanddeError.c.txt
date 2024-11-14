@@ -1,0 +1,31 @@
+#include  <stdio.h> 
+ #include  <string.h> 
+ #define  MAX_INSTRUCTIONS  100 
+ #define  MAX_LINE_LENGTH  50 
+ void  check_operand_errors  (  char  main_memory  []  [MAX_LINE_LENGTH],  int 
+ instruction_count  ) { 
+ f  or (int i = 0; i < i  nstruc  tion_count;  i  +  +) { 
+ int  o  p  erand_  c  oun  t = 0; 
+ char  *token = str  tok  (  main_memory  [i],  " ,"  ); 
+ // Cou  nt to  ken  s afte  r  the opcode  a  s operands 
+ while  (token  !=  NULL  ) { 
+ ope  rand_  coun  t++; 
+ token = strto  k  (  NULL  ,  " ,"  ); 
+ } 
+ if  (operand_count  <  3  ) {  // Opcode + 2 operands 
+ printf("Opera  nd  error  at  address  %d  :  Missing  operand(s) 
+ in instruction '  %s  '  \n  "  , i,  main_memory  [i]); 
+ } 
+ } 
+ } 
+ int  main  () { 
+ char  main_memory  [MAX_INSTRUCTIONS][MAX_LINE_LENGTH]  =  { 
+ "  LOAD R1, 10  0  ", 
+ "STORE R2"  ,  // Missing operand for testing 
+ "ADD R1, R2"  , 
+ "SUB R3"  // Missing operand for testing 
+ }; 
+ int  instruction_count  =  4  ; 
+ chec  k_operand_errors(  main_memory, instruction_count); 
+ return 0; 
+ }
